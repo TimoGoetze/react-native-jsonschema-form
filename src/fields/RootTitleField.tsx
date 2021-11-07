@@ -16,6 +16,7 @@ const RootTitleField = ({
       styles.title,
       {
         color: theme.textColor,
+        borderBottomWidth: title && title.length > 0 ? 1 : 0,
       },
     ] }
     >
@@ -33,7 +34,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: 'black',
     marginBottom: 10,
-    borderBottomWidth: 1,
     borderBottomColor: '#EEEEEE',
   },
 });

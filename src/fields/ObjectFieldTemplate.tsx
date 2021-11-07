@@ -11,13 +11,16 @@ const ObjectFieldTemplate = ({
                                required,
                                uiSchema,
                              }: ObjectFieldTemplateProps) => {
+
+    console.log(description, title, properties, uiSchema)
+
   return (
     <View>
       {
-        (uiSchema[ 'ui:title' ] || title) ? <RootTitleField title={ title } required={ required }/> : null
+        (uiSchema[ 'ui:title' ] || title) ? <RootTitleField title={ uiSchema[ 'ui:title' ] === '' ? '' : title } required={ required }/> : null
       }
       {
-        description ? <DescriptionField description={ description }/> : null
+        (uiSchema[ 'ui:description' ] || description) ? <DescriptionField description={ uiSchema[ 'ui:description' ] === '' ? '' : description }/> : null
       }
       {
         properties.map((element: any, index: number) => (

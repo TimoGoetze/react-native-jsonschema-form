@@ -19,6 +19,8 @@ const uiSchema = {
 	multiselect: {
 		'ui:widget': 'checkboxes',
 	},
+	/*"ui:title": "", // Hide schema title
+	"ui:description": "" //hide schema description*/
 };
 
 const TEST_THEME_COLORFULL = {
