@@ -45,6 +45,10 @@ export const CheckBoxComponent = ({ disabled, onChange, selected, label }: Check
     backgroundColor: selected ? theme.highlightColor : 'transparent',
   };
 
+  const themedTextStyle = {
+      color: theme.textColor
+  };
+
   return (
     <TouchableOpacity
       style={ styles.container }
@@ -54,7 +58,7 @@ export const CheckBoxComponent = ({ disabled, onChange, selected, label }: Check
       <View style={ [ styles.checkbox, themedStyle ] }>
         { selected && <Text style={ styles.check }>{'\u2713'}</Text> }
       </View>
-      <Text style={ styles.text }>{ label }</Text>
+      <Text style={ [ styles.text, themedTextStyle ] }>{ label }</Text>
     </TouchableOpacity>
   );
 };
