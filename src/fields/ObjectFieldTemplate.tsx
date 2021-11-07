@@ -12,8 +12,6 @@ const ObjectFieldTemplate = ({
                                uiSchema,
                              }: ObjectFieldTemplateProps) => {
 
-    console.log(description, title, properties, uiSchema)
-
   return (
     <View>
       {
