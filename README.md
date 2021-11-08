@@ -84,7 +84,11 @@ const App = () => {
 - [x]  <del>unsupported field</del>
 - [x]  <del>checkbox widget: Label does not honor theme.textColor</del>
 - [x]  <del>support hidden schema title / description</del>
-- [ ]  Datepicker widget
+- [ ]  Datepicker / DateTimePicker widget
+- [ ]  SelectWidget
+- [ ]  FileUploadWidget
+- [ ]  NumberInput widget
+- [ ]  [NullField](https://github.com/rjsf-team/react-jsonschema-form/blob/master/packages/core/src/components/fields/NullField.js) to prevent formData error (Necessity questionable?)
 - [ ]  widget themes (for example for [react-native-paper](https://callstack.github.io/react-native-paper/))
 - [ ]  fix error: After clicking submit with empty required fields and filling in a required field and clicking submit again, error message / inputs update but scrollview scroll to top not executed
 
