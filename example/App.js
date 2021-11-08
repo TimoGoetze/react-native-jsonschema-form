@@ -46,9 +46,6 @@ export default () => {
 			<ScrollView
 				style={styles.container}
 				ref={scrollViewRef}
-				onScroll={event => {
-					console.log(event.nativeEvent.contentOffset.y);
-				}}
 			>
 				<View style={styles.spacer}/>
 				<ReactNativeForm
@@ -61,7 +58,8 @@ export default () => {
 					}}
 					schema={schema}
 					uiSchema={uiSchema}
-					onSubmit={(f) => console.log(f.formData)}>
+					onSubmit={(f) => console.log(f.formData)}
+				>
 					<Button
 						title="Submit"
 						onPress={() => {
