@@ -18,6 +18,7 @@ const RootTitleField = ({
         color: theme.textColor,
         borderBottomWidth: title && title.length > 0 ? 1 : 0,
       },
+      title === '' && { height: 0 }
     ] }
     >
       { title }

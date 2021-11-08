@@ -19,8 +19,8 @@ const uiSchema = {
 	multiselect: {
 		'ui:widget': 'checkboxes',
 	},
-	/*"ui:title": "", // Hide schema title
-	"ui:description": "" //hide schema description*/
+	/*"ui:title": "",*/ // Hide schema title
+	/*"ui:description": "",*/ //hide schema description
 };
 
 const TEST_THEME_COLORFULL = {
@@ -34,21 +34,29 @@ const TEST_THEME_COLORFULL = {
 
 export default () => {
 	const form = useRef(null);
+	const scrollViewRef = useRef(null);
 	
 	return (
 		<FormContext.Provider
 			value={{
 				...defaultProps,
-/*
-				theme: TEST_THEME_COLORFULL
-*/
+				/*theme: TEST_THEME_COLORFULL*/
 			}}
 		>
-			<ScrollView style={styles.container}>
+			<ScrollView
+				style={styles.container}
+				ref={scrollViewRef}
+				onScroll={event => {
+					console.log(event.nativeEvent.contentOffset.y);
+				}}
+			>
 				<View style={styles.spacer}/>
 				<ReactNativeForm
 					ref={form}
 					onError={(e) => {
+						if (scrollViewRef?.current) {
+							scrollViewRef.current.scrollTo({x: 0, y: 0, animated: true});
+						}
 						console.log(e);
 					}}
 					schema={schema}
