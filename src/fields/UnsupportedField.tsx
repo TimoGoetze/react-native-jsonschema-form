@@ -1,23 +1,14 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import { FieldProps } from '@rjsf/core';
+import { JSONSchema7 } from 'json-schema';
 import { useFormContext } from '../FormContext';
 
-export type UnsupportedFieldProps = {
-  idSchema: {
-    '$id': string;
-  },
-  reason: string;
-  schema: {
-    description: string;
-    title: string;
-    type: string;
-    [key: string]: any;
-  }
-}
+// add new lines on all commas and curly brackets
+const pseudoFormatSchema = (schema: JSONSchema7) => JSON.stringify(schema)?.replace(/,/g, '\,\n')?.replace(/\{/g, '\{\n')?.replace(/\}/g, '\n\}')
 
-const UnsupportedField = ({ reason, idSchema, schema }: UnsupportedFieldProps) => {
+const UnsupportedField = ({ reason, idSchema, schema }: FieldProps) => {
   const { theme } = useFormContext();
-
   return (
   <View>
     <Text style={{ color: theme.errorColor }}>
@@ -25,7 +16,10 @@ const UnsupportedField = ({ reason, idSchema, schema }: UnsupportedFieldProps) =
     </Text>
 
     <View style={ styles.schemaContainer }>
-      <Text style={{ textAlign: 'left' }}>{JSON.stringify(schema).replaceAll(',',',\n')}</Text>
+      {
+        schema && Object.keys(schema)?.length > 0 &&
+        <Text style={{ textAlign: 'left' }}>{ pseudoFormatSchema(schema) }</Text>
+      }
     </View>
   </View>
   );
