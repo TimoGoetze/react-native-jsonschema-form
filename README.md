@@ -5,8 +5,9 @@
 ```bash
 yarn add @rjsf/core rjsf-native
 
-# This package also depends on `@react-native-community/slider`
+# This package also depends on `@react-native-community/slider` and `@react-native-community/datetimepicker`
 yarn add @react-native-community/slider
+yarn add @react-native-community/datetimepicker
 ```
 
 ## Usage
@@ -84,7 +85,7 @@ const App = () => {
 - [x]  <del>unsupported field</del>
 - [x]  <del>checkbox widget: Label does not honor theme.textColor</del>
 - [x]  <del>support hidden schema title / description</del>
-- [ ]  Datepicker / TimePicker / DateTimePicker widget
+- [ ]  Datepicker (***WIP***) / TimePicker / DateTimePicker widget
 - [ ]  SelectWidget
 - [ ]  FileUploadWidget
 - [ ]  NumberInput widget
