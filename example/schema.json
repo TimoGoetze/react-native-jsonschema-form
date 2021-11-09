@@ -7,9 +7,14 @@
     "Root": {
       "type": "object",
       "properties": {
+        "date": {
+          "type": "string",
+          "description": "This is a date description",
+          "title": "Date"
+        },
         "toggle": {
           "type": "boolean",
-          "description": "This is toggle description",
+          "description": "This is a toggle description",
           "title": "Toggle"
         },
         "title": {

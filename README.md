@@ -84,7 +84,7 @@ const App = () => {
 - [x]  <del>unsupported field</del>
 - [x]  <del>checkbox widget: Label does not honor theme.textColor</del>
 - [x]  <del>support hidden schema title / description</del>
-- [ ]  Datepicker / DateTimePicker widget
+- [ ]  Datepicker / TimePicker / DateTimePicker widget
 - [ ]  SelectWidget
 - [ ]  FileUploadWidget
 - [ ]  NumberInput widget

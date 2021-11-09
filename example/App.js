@@ -4,6 +4,12 @@ import ReactNativeForm, {defaultProps, FormContext} from 'rjsf-native';
 import schema from './schema.json';
 
 const uiSchema = {
+	date: {
+		'ui:widget': "date",
+		"ui:options": {
+			placeholderText: "Date placeholder"
+		}
+	},
 	toggle: {
 		'ui:widget': 'radio',
 	},

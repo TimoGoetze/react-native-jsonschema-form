@@ -6,7 +6,9 @@
   "typings": "dist/index.d.ts",
   "description": "React Native theme, fields and widgets for react-jsonschema-form",
   "license": "MIT",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "tsdx watch",
     "build": "rimraf dist && tsdx build",
@@ -27,6 +29,7 @@
     "react-native": ">=0.60.0"
   },
   "devDependencies": {
+    "@react-native-community/datetimepicker": "^3.5.2",
     "@react-native-community/eslint-config": "^2.0.0",
     "@react-native-community/slider": "^3.0.0",
     "@rjsf/core": "^2.2.0",

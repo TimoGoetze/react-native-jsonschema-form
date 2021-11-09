@@ -8,6 +8,7 @@ import RangeWidget from './RangeWidget';
 import EmailWidget from './EmailWidget';
 import URLWidget from './URLWidget';
 import HiddenWidget from './HiddenWidget';
+import DateWidget from './DateWidget';
 
 export const Widgets = {
   TextWidget,
@@ -20,5 +21,6 @@ export const Widgets = {
   RadioWidget,
   SelectWidget: RadioWidget,
   RangeWidget,
-  HiddenWidget
+  HiddenWidget,
+  DateWidget
 };
