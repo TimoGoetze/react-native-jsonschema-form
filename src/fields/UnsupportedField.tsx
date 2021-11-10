@@ -5,7 +5,7 @@ import { JSONSchema7 } from 'json-schema';
 import { useFormContext } from '../FormContext';
 
 // add new lines on all commas and curly brackets
-const pseudoFormatSchema = (schema: JSONSchema7) => JSON.stringify(schema)?.replace(/,/g, '\,\n')?.replace(/\{/g, '\{\n')?.replace(/\}/g, '\n\}')
+const pseudoFormatSchema = (schema: JSONSchema7) => JSON.stringify(schema)?.replace(/,/g, ',\n')?.replace(/\{/g, '{\n')?.replace(/\}/g, '\n}');
 
 const UnsupportedField = ({ reason, idSchema, schema }: FieldProps) => {
   const { theme } = useFormContext();
@@ -18,26 +18,29 @@ const UnsupportedField = ({ reason, idSchema, schema }: FieldProps) => {
     <View style={ styles.schemaContainer }>
       {
         schema && Object.keys(schema)?.length > 0 &&
-        <Text style={{ textAlign: 'left' }}>{ pseudoFormatSchema(schema) }</Text>
+        <Text style={ styles.alignment }>{ pseudoFormatSchema(schema) }</Text>
       }
     </View>
   </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   fieldId: {
-    backgroundColor: '#FFCCCC'
+    backgroundColor: '#FFCCCC',
   },
   reason: {
     fontWeight: 'bold',
-    fontStyle: 'italic'
+    fontStyle: 'italic',
   },
   schemaContainer: {
     backgroundColor: 'lightgrey',
     borderWidth: 1,
-    borderColor: 'black'
-  }
-})
+    borderColor: 'black',
+  },
+  alignment: {
+    textAlign: 'left',
+  },
+});
 
 export default UnsupportedField;

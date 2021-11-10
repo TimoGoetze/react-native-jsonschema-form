@@ -46,7 +46,7 @@ export const CheckBoxComponent = ({ disabled, onChange, selected, label }: Check
   };
 
   const themedTextStyle = {
-      color: theme.textColor
+      color: theme.textColor,
   };
 
   return (

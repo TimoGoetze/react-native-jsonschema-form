@@ -22,5 +22,5 @@ export const Widgets = {
   SelectWidget: RadioWidget,
   RangeWidget,
   HiddenWidget,
-  DateWidget
+  DateWidget,
 };

@@ -6,5 +6,5 @@ export const Fields = {
   TitleField,
   AnyOfField: MultiSchemaField,
   OneOfField: MultiSchemaField,
-  UnsupportedField
+  UnsupportedField,
 };

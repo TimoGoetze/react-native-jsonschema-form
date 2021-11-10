@@ -6,13 +6,12 @@ import { WidgetProps } from '@rjsf/core';
 import { useFormContext } from '../FormContext';
 
 const DateWidget = (props: WidgetProps) => {
-    console.log(props)
     const {
         options,
         rawErrors,
         onChange,
         value,
-        disabled
+        disabled,
     } = props;
 
     const { theme } = useFormContext();
@@ -23,12 +22,12 @@ const DateWidget = (props: WidgetProps) => {
     };
 
     const themedPlaceholderTextStyle = {
-        color: rawErrors?.length > 0 ? theme.errorColor : theme.borderColor
-    }
+        color: rawErrors?.length > 0 ? theme.errorColor : theme.borderColor,
+    };
 
     const themedTextStyle = {
-        color: theme.textColor
-    }
+        color: theme.textColor,
+    };
 
     const onDateChange = (_event: Event, selectedDate?: Date) => {
         const currentDate = selectedDate || new Date();
