@@ -7,7 +7,10 @@ const uiSchema = {
 	date: {
 		'ui:widget': "date",
 		"ui:options": {
-			placeholderText: "Date placeholder"
+			placeholderText: "Date placeholder",
+			minDate: "2021-11-05",          //minDate && maxDate need to be passed as strings with format "YYYY-MM-DD"
+			maxDate: "2021-11-25",
+			display: "default"              //supports all other datepickerprops from @react-native-community/datetimepicker. Just make sure the prop name matches the object field name
 		}
 	},
 	toggle: {
