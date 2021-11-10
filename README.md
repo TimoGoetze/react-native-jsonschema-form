@@ -81,11 +81,13 @@ const App = () => {
 
 ### Tasks
 
-- [x] <del>hidden widget</del>
+- [x]  <del>hidden widget</del>
 - [x]  <del>unsupported field</del>
 - [x]  <del>checkbox widget: Label does not honor theme.textColor</del>
 - [x]  <del>support hidden schema title / description</del>
-- [ ]  Datepicker (***WIP***) / TimePicker / DateTimePicker widget
+- [ ]  <del>Datepicker</del> (*done until more specific functionality is required*)
+- [ ]  TimePicker 
+- [ ]  DateTimePicker widget
 - [ ]  SelectWidget
 - [ ]  FileUploadWidget
 - [ ]  NumberInput widget
