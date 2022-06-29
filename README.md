@@ -1,3 +1,8 @@
+# Experimental Fork
+Please do not expect this fork to work as long as you can read this comment. It is work in progress and currently not supported except commercially. 
+Thanks for your understanding.
+
+
 # [react-json-schema-form](https://github.com/rjsf-team/react-jsonschema-form) themed for react-native
 
 ## Getting Started
