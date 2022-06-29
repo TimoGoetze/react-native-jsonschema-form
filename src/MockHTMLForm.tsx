@@ -13,6 +13,7 @@ global.CustomEvent = global.CustomEvent || Event;
 
 export class MockHTMLForm extends Component {
   render() {
+    // @ts-ignore
     return <View>{ this.props.children }</View>;
   }
 
