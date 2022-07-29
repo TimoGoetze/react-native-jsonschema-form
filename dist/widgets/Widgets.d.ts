@@ -1,4 +1,3 @@
-/// <reference types="react" />
 /// <reference types="@rjsf/core" />
 export declare const Widgets: {
     TextWidget: ({ id, readonly, disabled, label, value, onChange, onBlur, onFocus, autofocus, options, multiline, secureEntry, schema, textContentType, rawErrors, }: import("@rjsf/core").WidgetProps & {
@@ -17,4 +16,5 @@ export declare const Widgets: {
     RangeWidget: ({ value, readonly, disabled, schema, onChange, }: import("@rjsf/core").WidgetProps) => JSX.Element;
     HiddenWidget: () => JSX.Element;
     DateWidget: (props: import("@rjsf/core").WidgetProps) => JSX.Element;
+    TimeWidget: (props: import("@rjsf/core").WidgetProps) => JSX.Element;
 };

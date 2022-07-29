@@ -1,4 +1,3 @@
-/// <reference types="react" />
 /// <reference types="@rjsf/core" />
 export declare const Fields: {
     TitleField: ({ title, required, error, }: {

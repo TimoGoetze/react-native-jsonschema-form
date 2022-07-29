@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { TextInputIOSProps } from 'react-native';
 import { WidgetProps } from '@rjsf/core';
 declare type TextWidgetProps = WidgetProps & {

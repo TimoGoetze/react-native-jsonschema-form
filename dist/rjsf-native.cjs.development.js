@@ -10,6 +10,7 @@ var React__default = _interopDefault(React);
 var reactNative = require('react-native');
 var Slider = _interopDefault(require('@react-native-community/slider'));
 var reactNativePaperDates = require('react-native-paper-dates');
+var reactNativePaper = require('react-native-paper');
 
 var defaultProps = {
   theme: {
@@ -893,19 +894,91 @@ reactNativePaperDates.registerTranslation('de', reactNativePaperDates.de);
 var DateWidget = function DateWidget(props) {
   var onChange = props.onChange,
       value = props.value;
+  console.log("Datewidget DEBUG " + value);
+  var startDate = value || +new Date();
 
   var onDateChange = function onDateChange(selectedDate) {
+    console.log("Datewidget DEBUG onDateChange " + selectedDate);
     var currentDate = selectedDate || new Date();
     onChange(+currentDate); //date as timestamp
   };
 
   return React.createElement(React.Fragment, null, React.createElement(reactNativePaperDates.DatePickerInput, {
     locale: "de",
-    label: "4DEV" + props.label,
-    value: value,
+    label: props.label,
+    value: new Date(startDate),
     onChange: onDateChange,
     inputMode: "start",
     mode: "outlined"
+  }));
+};
+
+reactNativePaperDates.registerTranslation('de', reactNativePaperDates.de);
+
+var TimeWidget = function TimeWidget(props) {
+  var onChange = props.onChange,
+      value = props.value;
+  var startDate = value || +new Date();
+
+  var onDateChange = function onDateChange(selectedDate) {
+    var currentDate = selectedDate || new Date();
+    onChange(+currentDate); //date as timestamp
+  };
+
+  var TimePickerPage = function TimePickerPage() {
+    var _React$useState = React.useState(false),
+        visible = _React$useState[0],
+        setVisible = _React$useState[1];
+
+    var onDismiss = React.useCallback(function () {
+      setVisible(false);
+    }, [setVisible]);
+    var startTime = new Date(props.value) || new Date(0);
+    console.log(JSON.stringify(startTime));
+    var onConfirm = React.useCallback( // @ts-ignore
+    function (_ref) {
+      var hours = _ref.hours,
+          minutes = _ref.minutes;
+      setVisible(false);
+      onDateChange(new Date(0).setHours(hours, minutes));
+    }, [setVisible]);
+
+    var zeroPad = function zeroPad(num, places) {
+      return String(num).padStart(places, '0');
+    };
+
+    return React.createElement(React.Fragment, null, React.createElement(reactNativePaperDates.TimePickerModal, {
+      visible: visible,
+      onDismiss: onDismiss,
+      onConfirm: onConfirm,
+      hours: startTime.getHours(),
+      minutes: startTime.getMinutes(),
+      label: props.label,
+      uppercase: false,
+      cancelLabel: "Cancel" // optional, default: 'Cancel'
+      ,
+      confirmLabel: "Ok" // optional, default: 'Ok'
+      ,
+      animationType: "fade" // optional, default is 'none'
+      ,
+      locale: "de" // optional, default is automically detected by your system
+
+    }), React.createElement(reactNativePaper.Button, {
+      onPress: function onPress() {
+        return setVisible(true);
+      }
+    }, zeroPad(startTime.getHours(), 2) + ":" + zeroPad(startTime.getMinutes(), 2)));
+  };
+
+  return React.createElement(React.Fragment, null, React.createElement(TimePickerPage // @ts-ignore
+  , {
+    // @ts-ignore
+    locale: "de",
+    //label={props.label}
+    value: new Date(startDate),
+    onConfirm: onDateChange,
+    inputMode: "start",
+    mode: ""
   }));
 };
 
@@ -921,7 +994,8 @@ var Widgets = {
   SelectWidget: RadioWidget,
   RangeWidget: RangeWidget,
   HiddenWidget: HiddenWidget,
-  DateWidget: DateWidget
+  DateWidget: DateWidget,
+  TimeWidget: TimeWidget
 };
 
 var _excluded = ["widget"];

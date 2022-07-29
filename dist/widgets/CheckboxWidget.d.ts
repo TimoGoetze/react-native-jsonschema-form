@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { WidgetProps } from '@rjsf/core';
 declare const CheckboxWidget: ({ value, disabled, readonly, label, onChange, schema, }: WidgetProps) => JSX.Element;
 declare type CheckBoxProps = {

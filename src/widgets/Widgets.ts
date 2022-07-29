@@ -9,6 +9,7 @@ import EmailWidget from './EmailWidget';
 import URLWidget from './URLWidget';
 import HiddenWidget from './HiddenWidget';
 import DateWidget from './DateWidget';
+import TimeWidget from './TimeWidget';
 
 export const Widgets = {
   TextWidget,
@@ -23,4 +24,5 @@ export const Widgets = {
   RangeWidget,
   HiddenWidget,
   DateWidget,
+  TimeWidget
 };

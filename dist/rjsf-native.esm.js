@@ -1,8 +1,9 @@
 import { utils, withTheme } from '@rjsf/core';
-import React__default, { createContext, useContext, Component, useState, createElement, Fragment, useEffect } from 'react';
+import React__default, { createContext, useContext, Component, useState, createElement, Fragment, useCallback, useEffect } from 'react';
 import { Text, StyleSheet, View, TouchableOpacity, LayoutAnimation, Image, TextInput } from 'react-native';
 import Slider from '@react-native-community/slider';
-import { registerTranslation, de, DatePickerInput } from 'react-native-paper-dates';
+import { registerTranslation, de, DatePickerInput, TimePickerModal } from 'react-native-paper-dates';
+import { Button } from 'react-native-paper';
 
 var defaultProps = {
   theme: {
@@ -886,19 +887,91 @@ registerTranslation('de', de);
 var DateWidget = function DateWidget(props) {
   var onChange = props.onChange,
       value = props.value;
+  console.log("Datewidget DEBUG " + value);
+  var startDate = value || +new Date();
 
   var onDateChange = function onDateChange(selectedDate) {
+    console.log("Datewidget DEBUG onDateChange " + selectedDate);
     var currentDate = selectedDate || new Date();
     onChange(+currentDate); //date as timestamp
   };
 
   return createElement(Fragment, null, createElement(DatePickerInput, {
     locale: "de",
-    label: "4DEV" + props.label,
-    value: value,
+    label: props.label,
+    value: new Date(startDate),
     onChange: onDateChange,
     inputMode: "start",
     mode: "outlined"
+  }));
+};
+
+registerTranslation('de', de);
+
+var TimeWidget = function TimeWidget(props) {
+  var onChange = props.onChange,
+      value = props.value;
+  var startDate = value || +new Date();
+
+  var onDateChange = function onDateChange(selectedDate) {
+    var currentDate = selectedDate || new Date();
+    onChange(+currentDate); //date as timestamp
+  };
+
+  var TimePickerPage = function TimePickerPage() {
+    var _React$useState = useState(false),
+        visible = _React$useState[0],
+        setVisible = _React$useState[1];
+
+    var onDismiss = useCallback(function () {
+      setVisible(false);
+    }, [setVisible]);
+    var startTime = new Date(props.value) || new Date(0);
+    console.log(JSON.stringify(startTime));
+    var onConfirm = useCallback( // @ts-ignore
+    function (_ref) {
+      var hours = _ref.hours,
+          minutes = _ref.minutes;
+      setVisible(false);
+      onDateChange(new Date(0).setHours(hours, minutes));
+    }, [setVisible]);
+
+    var zeroPad = function zeroPad(num, places) {
+      return String(num).padStart(places, '0');
+    };
+
+    return createElement(Fragment, null, createElement(TimePickerModal, {
+      visible: visible,
+      onDismiss: onDismiss,
+      onConfirm: onConfirm,
+      hours: startTime.getHours(),
+      minutes: startTime.getMinutes(),
+      label: props.label,
+      uppercase: false,
+      cancelLabel: "Cancel" // optional, default: 'Cancel'
+      ,
+      confirmLabel: "Ok" // optional, default: 'Ok'
+      ,
+      animationType: "fade" // optional, default is 'none'
+      ,
+      locale: "de" // optional, default is automically detected by your system
+
+    }), createElement(Button, {
+      onPress: function onPress() {
+        return setVisible(true);
+      }
+    }, zeroPad(startTime.getHours(), 2) + ":" + zeroPad(startTime.getMinutes(), 2)));
+  };
+
+  return createElement(Fragment, null, createElement(TimePickerPage // @ts-ignore
+  , {
+    // @ts-ignore
+    locale: "de",
+    //label={props.label}
+    value: new Date(startDate),
+    onConfirm: onDateChange,
+    inputMode: "start",
+    mode: ""
   }));
 };
 
@@ -914,7 +987,8 @@ var Widgets = {
   SelectWidget: RadioWidget,
   RangeWidget: RangeWidget,
   HiddenWidget: HiddenWidget,
-  DateWidget: DateWidget
+  DateWidget: DateWidget,
+  TimeWidget: TimeWidget
 };
 
 var _excluded = ["widget"];

@@ -24,11 +24,13 @@ const DateWidget = (props: WidgetProps) => {
         value,
 
     } = props;
-
+console.log("Datewidget DEBUG " + value);
+const startDate = value || +new Date()
 
 
 
     const onDateChange = (selectedDate?: Date) => {
+        console.log("Datewidget DEBUG onDateChange " + selectedDate);
         const currentDate = selectedDate || new Date();
         onChange(+currentDate); //date as timestamp
     };
@@ -41,8 +43,8 @@ const DateWidget = (props: WidgetProps) => {
 
                             <DatePickerInput
                                 locale="de"
-                                label={"4DEV" + props.label}
-                                value={value}
+                                label={props.label}
+                                value={new Date(startDate)}
                                 onChange={onDateChange}
                                 inputMode="start"
                                 mode="outlined"
