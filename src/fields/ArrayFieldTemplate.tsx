@@ -4,9 +4,9 @@ import { Image, LayoutAnimation, StyleSheet, Text, TouchableOpacity, View } from
 import DescriptionField from './DescriptionField';
 import { useFormContext } from '../FormContext';
 import TitleField from './TitleField';
-import reorderUp from '../../assets/ReorderUp@3x.png';
-import reorderDown from '../../assets/ReorderDown@3x.png';
-import arrayDelete from '../../assets/arrayDelete@3x.png';
+import reorderUp from '../../assets/ReorderUp3x.png';
+import reorderDown from '../../assets/ReorderDown3x.png';
+import arrayDelete from '../../assets/arrayDelete3x.png';
 
 const { isMultiSelect, getDefaultRegistry } = utils;
 
@@ -65,7 +65,7 @@ const DefaultArrayItem = (props: any) => {
                 props.onReorderClick(props.index, props.index - 1)();
               } }
             >
-              <Image style={ styles.image } source={ { uri: reorderUp } }/>
+              <Image style={ styles.image } uri={  reorderUp  }/>
             </TouchableOpacity>
           )
         }
@@ -77,7 +77,7 @@ const DefaultArrayItem = (props: any) => {
                 props.onReorderClick(props.index, props.index + 1)();
               } }
             >
-              <Image style={ styles.image } source={ { uri: reorderDown } }/>
+              <Image style={ styles.image } uri={  reorderDown  }/>
             </TouchableOpacity>
           )
         }
@@ -93,7 +93,7 @@ const DefaultArrayItem = (props: any) => {
                 props.onDropIndexClick(props.index)();
               } }
             >
-              <Image style={ styles.image } source={ { uri: arrayDelete } }/>
+              <Image style={ styles.image } uri={ arrayDelete  }/>
             </TouchableOpacity>
           )
         }
